@@ -1,0 +1,47 @@
+html {
+    
+}
+
+#word {
+    text-align: center;
+    font-size: 48px;
+    font-color: black;
+    font-family: Century-Gothic, sans-serif;
+}
+
+div {
+    margin: auto; background-color: azure; border-radius: 5px; border: 2px solid black; width: 600px; 
+}
+
+.myButton {
+	background-color: slategray;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:2px solid white;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Century-Gothic, sans-serif;
+	font-size:15px;
+	padding: 4px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #52442e;
+}
+
+#team {
+    display: inline-block;
+    padding: 8px; background-color:azure; border-radius: 5px; border: 2px solid black; font-family: Century-Gothic, sans-serif;
+}
+
+span + .myButton {
+    margin-left: 350px;
+}
+
+.myButton + span{
+    margin-left: 350px;
+}
+
+#score + #score {
+    margin-left: 810px;
+}

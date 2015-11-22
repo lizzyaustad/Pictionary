@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pictionary</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+    
+<body background = "bkg.png">
+    <center>
+    <br>
+    <img src="title.png" width="500" height="150" alt="Welcome" />
+    <br><br>
+    <span id="score">
+    <button class="myButton" onclick="addT1()">+</button>
+    <button class="myButton" onclick="minusT1()">-</button>
+        </span>
+        <span id="score">
+    <button class="myButton" onclick="addT2()">+</button>
+    <button class="myButton" onclick="minusT2()">-</button>
+        </span>
+    <br><br>
+    <span id="team">
+        Team 1: <p id="1"> <br></p>  
+    </span> 
+    <button class="myButton" onclick="getWord()">New Word</button>
+    
+    <span id="team">
+        Team 2: 
+        <p id="2"> <br></p>  
+    </span> 
+    
+    
+    
+    
+    <br><br>
+    <div>
+    <br><br>
+    
+    <p id="word">
+       
+    </p>
+        <br><br>
+        </div>
+    <br><br>
+        
+    <button class="myButton" onclick="addWord()">Add a Word</button>
+    <br><br>
+    
+    </center>
+    <script>
+        var words = ["apple", "pear", "orange"];
+        function addWord() {
+            var newword = prompt("Type your word or phrase below: ");
+            words[words.length] = newword;
+        }
+        function getWord() {
+            var num = Math.floor(Math.random()*words.length);
+            document.getElementById("word").innerHTML = words[num];
+        }
+        var score1 = 0;
+        var score2 = 0;
+        function addT1() {
+            
+            score1=score1+1;
+                document.getElementById("1").innerHTML = score1;
+        }
+        
+        function addT2() {
+            
+           score2=score2+1; document.getElementById("2").innerHTML = score2;
+        }
+        function minusT1() {
+            
+           score1=score1-1; document.getElementById("1").innerHTML = score1;
+        }
+        
+        function minusT2() {
+            
+           score2=score2-1; document.getElementById("2").innerHTML = score2;
+        }
+    </script>
+</body>
+    
+</html>
