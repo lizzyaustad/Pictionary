@@ -3,6 +3,14 @@
 <head>
     <title>Pictionary</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
+    <script>
+        $(document).ready(function(){
+            function time_blink(){
+                $("div").animate({background});
+            }
+        });
+    </script>
 </head>
     
 <body>
@@ -15,21 +23,22 @@
     <button class="myButton" onclick="addT1()">+</button>
     <button class="myButton" onclick="minusT1()">-</button>
         </span>
-        <button class="myButton" onclick="clearWord(); timeInt = setInterval(startTimer,1000); setTimeout(stopTimer, 61000)">Start Timer</button>
-    <button class="myButton" onclick="stopTimer()">Stop Timer</button>
+        <button class="myButton" onclick="addWord()">Add a Word</button>
+        <button class="myButton" onclick="getWord()">New Word</button>
+        
         <span id="score">
     <button class="myButton" onclick="addT2()">+</button>
     <button class="myButton" onclick="minusT2()">-</button>
         </span>
     <br><br>
-    <span id="team">
-        Team 1: <p id="1"> <br></p>  
+    <span id="team" onclick="nameTeam1()">
+        Team 1: <p id="one"></p><p id="1"> <br></p>  
     </span> 
-    <button class="myButton" id="new" onclick="getWord()">New Word</button>
     
+    <button class="myButton" id="new" onclick="startGame()">Start Game</button>
     
-    <span id="team">
-        Team 2: 
+    <span id="team" onclick="nameTeam2()">
+        Team 2: <p id="two"></p>
         <p id="2"> <br></p>  
     </span> 
     
@@ -46,9 +55,11 @@
         
         </div>
     <br><br>
-        
-    <button class="myButton" onclick="addWord()">Add a Word</button>
-    <button class="myButton" onclick="startGame()">Start Game</button>
+     <button class="myButton" onclick="setTimer()">Set Timer</button> 
+     <button class="myButton" onclick="clearWord(); timeInt = setInterval(startTimer,1000); setTimeout(stopTimer, 61000)">Start Timer</button>
+    <button class="myButton" onclick="stopTimer()">Stop Timer</button>   
+    
+    
     <br><br>
     
     </center>
@@ -98,6 +109,11 @@
             
         }
         
+        function setTimer() {
+            var temp = prompt("Enter time (in seconds) below: ");
+            d=temp;
+        }
+        
         function addT1() {
             
             score1=score1+1;
@@ -117,7 +133,19 @@
             
            score2=score2-1; document.getElementById("2").innerHTML = score2;
         }
+        
+        function nameTeam1() {
+            var teamone = prompt("Type your team name below:");
+            document.getElementById("one").innerHTML = teamone;
+        }
+        
+        function nameTeam2() {
+            var teamtwo = prompt("Type your team name below:");
+            document.getElementById("two").innerHTML = teamtwo;
+        }
     </script>
+    
+    
     </body>
     
 </html>
