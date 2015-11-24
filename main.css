@@ -1,5 +1,6 @@
 html {
-    
+    background: linear-gradient(#80bfff, #3399ff);
+    height: 100%;
 }
 
 #word {
@@ -10,7 +11,7 @@ html {
 }
 
 div {
-    margin: auto; background-color: azure; border-radius: 5px; border: 2px solid black; width: 600px; 
+    margin: auto; background-color: azure;  width: 600px; 
 }
 
 .myButton {
@@ -29,19 +30,32 @@ div {
 	text-shadow:0px 1px 0px #52442e;
 }
 
+#Settings {
+    text-align: right; color:azure; font-family: Century-Gothic, sans-serif; font-size: 15px; text-decoration: underline; 
+}
+
 #team {
     display: inline-block;
-    padding: 8px; background-color:azure; border-radius: 5px; border: 2px solid black; font-family: Century-Gothic, sans-serif;
+    padding: 8px; background-color: lightslategray; font-family: Century-Gothic, sans-serif; box-shadow: 5px; color: azure;
 }
 
-span + .myButton {
+#time {
+    font-size: 48px; font-family: Century-Gothic, sans-serif;
+}
+#score + .myButton {
+    margin-left: 303px;
+}
+
+.myButton + #score {
+    margin-left: 303px;
+}
+
+span + #new {
     margin-left: 350px;
 }
 
-.myButton + span{
+#new + span{
     margin-left: 350px;
 }
 
-#score + #score {
-    margin-left: 810px;
-}
+

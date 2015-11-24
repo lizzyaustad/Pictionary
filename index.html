@@ -5,15 +5,18 @@
     <link rel="stylesheet" href="main.css">
 </head>
     
-<body background = "bkg.png">
+<body>
+    <p id="Settings">Settings</p>
     <center>
     <br>
-    <img src="title.png" width="500" height="150" alt="Welcome" />
+    <img src="title.png" width="500" height="120" alt="Welcome" />
     <br><br>
     <span id="score">
     <button class="myButton" onclick="addT1()">+</button>
     <button class="myButton" onclick="minusT1()">-</button>
         </span>
+        <button class="myButton" onclick="clearWord(); timeInt = setInterval(startTimer,1000); setTimeout(stopTimer, 61000)">Start Timer</button>
+    <button class="myButton" onclick="stopTimer()">Stop Timer</button>
         <span id="score">
     <button class="myButton" onclick="addT2()">+</button>
     <button class="myButton" onclick="minusT2()">-</button>
@@ -22,7 +25,8 @@
     <span id="team">
         Team 1: <p id="1"> <br></p>  
     </span> 
-    <button class="myButton" onclick="getWord()">New Word</button>
+    <button class="myButton" id="new" onclick="getWord()">New Word</button>
+    
     
     <span id="team">
         Team 2: 
@@ -30,35 +34,70 @@
     </span> 
     
     
-    
-    
-    <br><br>
+    <br>
     <div>
-    <br><br>
+    <br>
     
     <p id="word">
        
     </p>
-        <br><br>
+      <p id="time"></p>  
+        <br>
+        
         </div>
     <br><br>
         
     <button class="myButton" onclick="addWord()">Add a Word</button>
+    <button class="myButton" onclick="startGame()">Start Game</button>
     <br><br>
     
     </center>
     <script>
-        var words = ["apple", "pear", "orange"];
+        var words = ["apple", "pear", "orange", "The Call of the Wild by Jack London", "A Tale of Two Cities by Charles Dickens", "The Da Vinci Code by Dan Brown", "To Kill a Mockingbird by Harper Lee", "Hitchiker's Guide to the Galaxy by Douglas Adams", "Moby-Dick by Herman Melville", "Kim Possible", "Pokemon", "The Simpsons", "Breaking Bad", "Rugrats", "Aladdin", "Spiderman", "Dumbo", "Harry Potter", "The Matrix", "Shrek", "Star Wars", "Piece of Cake", "Make a mountain out of a molehill", "Don't cry over spilled milk", "Once in a blue moon", "I'm Lovin' It", "tongue-in-cheek","curiosity killed the cat", "swordfish", "pizza", "softball", "Real Madrid", "Quito, Ecuador", "Monsters, Inc.", "Wolf of Wall Street", "Jim and Pam", "peanut butter and jelly", "Oreos", "Frosty the Snowman", "Justin Bieber", "bananagrams", "Rubik's cube", "Call of Duty", "FIFA"];
+        var d = 60;
+        var num = 0;
+        var timeInt;
+        var score1 = 0;
+        var score2 = 0;
         function addWord() {
             var newword = prompt("Type your word or phrase below: ");
             words[words.length] = newword;
         }
         function getWord() {
-            var num = Math.floor(Math.random()*words.length);
+            num++;
             document.getElementById("word").innerHTML = words[num];
         }
-        var score1 = 0;
-        var score2 = 0;
+        function clearWord() {
+            document.getElementById("word").innerHTML = "";
+        }
+        function startGame() {
+            shuffle(words);
+            num=0;
+            getWord();
+            score1 = 0;
+            score2 = 0;
+        }
+        function shuffle(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+        function startTimer() {           
+            d--;
+            document.getElementById("time").innerHTML = d;
+        }
+        function stopTimer() {
+            d=60;
+            clearTimeout(timeInt);
+            document.getElementById("time").innerHTML = "";
+            document.getElementById("word").innerHTML = words[num];
+            
+        }
+        
         function addT1() {
             
             score1=score1+1;
@@ -79,6 +118,6 @@
            score2=score2-1; document.getElementById("2").innerHTML = score2;
         }
     </script>
-</body>
+    </body>
     
 </html>
