@@ -7,16 +7,16 @@
     <script>
         $(document).ready(function(){
             function time_blink(){
-                $("div").animate({background});
+                $("#box").animate(background-color: yellow);
             }
         });
     </script>
 </head>
     
 <body>
-    <p id="Settings">Settings</p>
+   
     <center>
-    <br>
+    
     <img src="title.png" width="500" height="120" alt="Welcome" />
     <br><br>
     <span id="score">
@@ -41,22 +41,17 @@
         Team 2: <p id="two"></p>
         <p id="2"> <br></p>  
     </span> 
-    
-    
+
     <br>
-    <div>
-    <br>
-    
-    <p id="word">
-       
-    </p>
-      <p id="time"></p>  
+    <div id="box">
         <br>
-        
-        </div>
+        <p id="word">  </p>
+        <p id="time"></p>  
+        <br>
+    </div>
     <br><br>
      <button class="myButton" onclick="setTimer()">Set Timer</button> 
-     <button class="myButton" onclick="clearWord(); timeInt = setInterval(startTimer,1000); setTimeout(stopTimer, 61000)">Start Timer</button>
+     <button class="myButton" onclick="clearWord(); timeInt = setInterval(startTimer,1000); setTimeout(stopTimer, timerlength)">Start Timer</button>
     <button class="myButton" onclick="stopTimer()">Stop Timer</button>   
     
     
@@ -64,6 +59,7 @@
     
     </center>
     <script>
+        var timerlength = 61000;
         var words = ["apple", "pear", "orange", "The Call of the Wild by Jack London", "A Tale of Two Cities by Charles Dickens", "The Da Vinci Code by Dan Brown", "To Kill a Mockingbird by Harper Lee", "Hitchiker's Guide to the Galaxy by Douglas Adams", "Moby-Dick by Herman Melville", "Kim Possible", "Pokemon", "The Simpsons", "Breaking Bad", "Rugrats", "Aladdin", "Spiderman", "Dumbo", "Harry Potter", "The Matrix", "Shrek", "Star Wars", "Piece of Cake", "Make a mountain out of a molehill", "Don't cry over spilled milk", "Once in a blue moon", "I'm Lovin' It", "tongue-in-cheek","curiosity killed the cat", "swordfish", "pizza", "softball", "Real Madrid", "Quito, Ecuador", "Monsters, Inc.", "Wolf of Wall Street", "Jim and Pam", "peanut butter and jelly", "Oreos", "Frosty the Snowman", "Justin Bieber", "bananagrams", "Rubik's cube", "Call of Duty", "FIFA"];
         var d = 60;
         var num = 0;
@@ -99,6 +95,7 @@
         }
         function startTimer() {           
             d--;
+            
             document.getElementById("time").innerHTML = d;
         }
         function stopTimer() {
@@ -106,12 +103,12 @@
             clearTimeout(timeInt);
             document.getElementById("time").innerHTML = "";
             document.getElementById("word").innerHTML = words[num];
-            
         }
         
         function setTimer() {
             var temp = prompt("Enter time (in seconds) below: ");
             d=temp;
+            timerlength = (temp*1000)+1;
         }
         
         function addT1() {
