@@ -36,18 +36,18 @@ div {
 
 #team {
     display: inline-block;
-    padding: 8px; background-color: lightslategray; font-family: Century-Gothic, sans-serif; box-shadow: 5px; color: azure;
+    padding: 8px; background-color: lightslategray; font-family: Century-Gothic, sans-serif; font-size: 20px; box-shadow: 5px; color: azure; height: 100px; width:100px;
 }
 
 #time {
     font-size: 48px; font-family: Century-Gothic, sans-serif;
 }
 #score + .myButton {
-    margin-left: 303px;
+    margin-left: 325px;
 }
 
 .myButton + #score {
-    margin-left: 303px;
+    margin-left: 325px;
 }
 
 span + #new {

@@ -32,13 +32,13 @@
         </span>
     <br><br>
     <span id="team" onclick="nameTeam1()">
-        Team 1: <p id="one"></p><p id="1"> <br></p>  
+        <p id="one"></p><p id="1"> <br></p>  
     </span> 
     
     <button class="myButton" id="new" onclick="startGame()">Start Game</button>
     
     <span id="team" onclick="nameTeam2()">
-        Team 2: <p id="two"></p>
+        <p id="two"></p>
         <p id="2"> <br></p>  
     </span> 
 
@@ -66,6 +66,8 @@
         var timeInt;
         var score1 = 0;
         var score2 = 0;
+        var teamone = "Team 1:";
+        var teamtwo = "Team 2:";
         function addWord() {
             var newword = prompt("Type your word or phrase below: ");
             words[words.length] = newword;
@@ -83,6 +85,10 @@
             getWord();
             score1 = 0;
             score2 = 0;
+            document.getElementById("1").innerHTML = score1;
+            document.getElementById("2").innerHTML = score2;
+            document.getElementById("one").innerHTML = teamone;
+            document.getElementById("two").innerHTML = teamtwo;
         }
         function shuffle(array) {
             for (var i = array.length - 1; i > 0; i--) {
@@ -102,6 +108,7 @@
             d=60;
             clearTimeout(timeInt);
             document.getElementById("time").innerHTML = "";
+            
             document.getElementById("word").innerHTML = words[num];
         }
         
@@ -132,12 +139,12 @@
         }
         
         function nameTeam1() {
-            var teamone = prompt("Type your team name below:");
+            teamone = prompt("Type your team name below:");
             document.getElementById("one").innerHTML = teamone;
         }
         
         function nameTeam2() {
-            var teamtwo = prompt("Type your team name below:");
+            teamtwo = prompt("Type your team name below:");
             document.getElementById("two").innerHTML = teamtwo;
         }
     </script>
