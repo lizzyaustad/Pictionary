@@ -3,14 +3,6 @@
 <head>
     <title>Pictionary</title>
     <link rel="stylesheet" href="main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
-    <script>
-        $(document).ready(function(){
-            function time_blink(){
-                $("#box").animate(background-color: yellow);
-            }
-        });
-    </script>
 </head>
     
 <body>
@@ -107,6 +99,8 @@
         function stopTimer() {
             d=60;
             clearTimeout(timeInt);
+            var snd = new Audio("duck.wav");
+            snd.play();
             document.getElementById("time").innerHTML = "";
             
             document.getElementById("word").innerHTML = words[num];
